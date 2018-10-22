@@ -1,0 +1,2 @@
+srun --mpi=pmi2 -p Segmentation -n1 --gres=gpu:1 --ntasks-per-node=1 python -u geonet_main.py --mode=test_depth --dataset_dir=/mnt/lustre/share/dingmingyu/kitti/kitti_raw_data/ --init_ckpt_file=ckpts_kitti_eigen/model-55000 --batch_size=1 --depth_test_split=eigen --output_dir=kitti_depth_val --scale_normalize
+python kitti_eval/eval_depth.py --split=eigen --kitti_dir=/mnt/lustre/share/dingmingyu/kitti/kitti_raw_data/ --pred_file=kitti_depth_val/model-55000.npy

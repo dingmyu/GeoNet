@@ -1,0 +1,1 @@
+srun --mpi=pmi2 -p Segmentation -n1 --gres=gpu:1 --ntasks-per-node=1 python -u geonet_main.py --mode=train_rigid --dataset_dir=/mnt/lustre/dingmingyu/Research/geo/kitti_raw_eigen/ --semantic_dir=/mnt/lustre/dingmingyu/Research/geo/kitti_raw_semantic/ --checkpoint_dir=ckpts_kitti_eigen/ --learning_rate=0.0002 --seq_length=3 --batch_size=4 --max_steps=350000 --scale_normalize

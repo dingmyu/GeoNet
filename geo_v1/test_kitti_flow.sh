@@ -1,0 +1,2 @@
+srun --mpi=pmi2 -p Segmentation -n1 --gres=gpu:1 --ntasks-per-node=1 python -u geonet_main.py --mode=test_flow --dataset_dir=/mnt/lustre/dingmingyu/Research/geo/Geonet_new/kitti_flow_test/ --init_ckpt_file=ckpts_kitti_eigen/model-55000 --flownet_type=residual --batch_size=1 --output_dir=predictions_res_flow_kitti/
+python kitti_eval/eval_flow.py --dataset_dir=/mnt/lustre/yinzhichao/Dataset/kitti_stereo_2015/ --pred_dir=predictions_res_flow_kitti/model-55000/
