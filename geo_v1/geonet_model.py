@@ -132,7 +132,7 @@ class GeoNetModel(object):
             self.bwd_rigid_flow_origin_pyramid.append(bwd_rigid_flow_concat)
             
             self.fwd_rigid_flow_pyramid.append(fwd_rigid_flow_concat+self.fwd_res_flow_pyramid[index]*tf.tile((self.tgt_image_tile_pyramid[index][:,:,:,3:4] + 1.0), [1, 1, 1, 2]))
-            self.bwd_rigid_flow_pyramid.append(bwd_rigid_flow_concat+self.bwd_res_flow_pyramid[index]*tf.tile((self.tgt_image_tile_pyramid[index][:,:,:,3:4] + 1.0), [1, 1, 1, 2]))
+            self.bwd_rigid_flow_pyramid.append(bwd_rigid_flow_concat+self.bwd_res_flow_pyramid[index]*tf.tile((self.src_image_concat_pyramid[index][:,:,:,3:4] + 1.0), [1, 1, 1, 2]))
             
         # warping by rigid flow
         self.fwd_rigid_warp_pyramid = [flow_warp(self.src_image_concat_pyramid[s], self.fwd_rigid_flow_origin_pyramid[s]) \
